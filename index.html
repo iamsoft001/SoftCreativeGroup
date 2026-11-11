@@ -10,7 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
   <header class="site-header">
@@ -128,5 +130,14 @@
   </footer>
   <a class="whatsapp-float" href="https://wa.me/2348167785376?text=Hello%20Soft%20Creative%20Group%2C%20I%27d%20like%20to%20make%20an%20inquiry." target="_blank" rel="noopener" aria-label="Chat with Soft Creative Group on WhatsApp">✆</a>
   <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').catch(error => {
+          console.error('SCG offline support could not be enabled:', error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
